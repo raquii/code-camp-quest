@@ -5,7 +5,7 @@ function useWalk(maxSteps){
     const [step, setStep] = useState(0);
     const [position, setPosition] = useState({x: 0, y: 0});
 
-    const stepSize = 16;
+    const stepSize = 2;
 
     const dirMap ={
         down: 0,
