@@ -34,15 +34,15 @@ const reducer = (state, action) => {
 
 function useWalk() {
     const [state, dispatch] = useReducer(reducer, {
-        direction: 0,
-        animationFrame: 0,
-        position: { x: 256, y: 192 },
+        direction: 0, //direction values match sprite sheet y-index values
+        animationFrame: 0, //animationFrame values match sprite sheet x-index values
+        position: { x: 256, y: 192 }, //sets starting coordinates next to bed
     })
 
     const { direction, animationFrame, position } = state;
 
     function walk(arrowKey) {
-
+        //checks if next tile allows for walking before dispatching to reducer
         if (getNextTile(arrowKey, state.position)) {
             dispatch({ type: arrowKey })
         }
