@@ -1,3 +1,13 @@
 .App{
     align-content: center;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#contentDiv{
+    align-self: center;
+    align-content: center;
+    display: flex;
+    flex-flow: column wrap;
+  
 }

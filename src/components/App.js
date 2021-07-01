@@ -1,18 +1,39 @@
-import Player from "./player/Player";
-import Map from "./map/Map";
-import HUD from "./hud/HUD";
-import Viewport from "./viewport/Viewport";
+import { Switch, Route } from "react-router";
+import NavBar from "./navbar/NavBar";
+import Game from "./game/Game";
 import './style.css';
 
 function App() {
 
   return (
     <div className="App">
-      <Viewport>
-        <Player />
-        <Map />
-      </Viewport>
-      <HUD />
+
+      <NavBar />
+
+      <div id="contentDiv">
+
+        <Switch>
+
+          <Route exact path="/">
+            <Game />
+          </Route>
+
+          <Route path="/instructions">
+            <h1>Instructions</h1>
+          </Route>
+
+          <Route path="/highscores">
+            <h1>High Scores</h1>
+          </Route>
+
+          <Route path="*">
+            <h1>404 Not Found</h1>
+          </Route>
+
+        </Switch>
+
+      </div>
+  
     </div>
   );
 }
