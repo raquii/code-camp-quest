@@ -1,7 +1,10 @@
 
 // import { MAP_TABLE } from "../../config/constants";
+import MapTile from "./MapTile";
 
 function Map() {
+
+    /* This is for debugging the MAP_TABLE*/
 
     // const mapGrid = MAP_TABLE.map((row, y)=>(
     //     <div key = {y} style={{display: "flex"}}>
@@ -12,44 +15,10 @@ function Map() {
 
     return (
         <div id="map">
-
-            <div id="bedroom"
-                style={{
-                    boxSizing: "border-box",
-                    backgroundImage: `url(/maps/bedroom.png)`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "0px 0px",
-                    display: "inline-block",
-                    width: "384px",
-                    height: "384px"
-                }}
-            >
-                {/* {mapGrid} */}
-            </div>
-            {/* <div id="office"
-                style={{
-                    backgroundImage: `url(/maps/office.png)`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "0px 0px",
-                    display: "inline-block",
-                    width:"384px",
-                    height:"384px",
-                }}
-            >
-            </div>
-            <div id="kitchen"
-                style={{
-                    backgroundImage: `url(/maps/kitchen.png)`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "0px 0px",
-                    display: "inline-block",
-                    width:"384px",
-                    height:"384px",
-                }}
-            >
-            </div> */}
-
-        </div>
+            <MapTile map={`bedroom`} />
+            <MapTile map={`office`} />
+            <MapTile map={`kitchen`} />
+       </div>
     )
 }
 
