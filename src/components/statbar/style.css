@@ -1,0 +1,24 @@
+#statDiv{
+    border: 1px solid rgb(255, 127, 127);
+    border-radius: 2px;
+    background-color: pink;
+    display: flex;
+    width: fit-content;
+    height: auto;
+    align-items: center;
+    padding: 1px;
+    font-size: 14px;
+}
+
+#statName{
+    margin: 0px 1px;
+}
+
+#statBarContainer{
+    border: 1px solid rgb(255, 0, 0);
+    background-color: white;
+    border-radius: 2px;
+    width: 100px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
