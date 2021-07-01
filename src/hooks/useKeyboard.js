@@ -5,7 +5,6 @@ function useKeyboard(fn){
         window.addEventListener("keydown", fn);
 
         return() => window.removeEventListener("keydown", fn);
-
     }, [fn])
 };
 
