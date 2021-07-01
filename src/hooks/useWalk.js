@@ -3,48 +3,48 @@ import { PLAYER_FRAMES } from "../config/constants";
 import getNextTile from "../utilities/get-next-tile";
 
 const reducer = (state, action) => {
-    switch(action.type){
-        case 'down': 
+    switch (action.type) {
+        case 'down':
             return {
-                direction: 0, 
+                direction: 0,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: {...state.position, y: state.position.y + 1}
+                position: { ...state.position, y: state.position.y + 1 }
             }
-        case 'left': 
+        case 'left':
             return {
-                direction: 1, 
+                direction: 1,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: {...state.position, x: state.position.x - 1}
+                position: { ...state.position, x: state.position.x - 1 }
             }
-        case 'right': 
+        case 'right':
             return {
-                direction: 2, 
+                direction: 2,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: {...state.position, x: state.position.x + 1}
+                position: { ...state.position, x: state.position.x + 1 }
             }
-        case 'up': 
+        case 'up':
             return {
-                direction: 3, 
+                direction: 3,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: {...state.position, y: state.position.y - 1}
+                position: { ...state.position, y: state.position.y - 1 }
             }
-        default:;
+        default: ;
     }
 }
 
-function useWalk(){
+function useWalk() {
     const [state, dispatch] = useReducer(reducer, {
         direction: 0,
         animationFrame: 0,
-        position: {x:256, y:192},
+        position: { x: 256, y: 192 },
     })
 
-    const { direction, animationFrame, position} = state;
+    const { direction, animationFrame, position } = state;
 
-    function walk(arrowKey){
-        
-        if(getNextTile(arrowKey, state.position)){
-            dispatch({type: arrowKey})
+    function walk(arrowKey) {
+
+        if (getNextTile(arrowKey, state.position)) {
+            dispatch({ type: arrowKey })
         }
 
     }

@@ -5,14 +5,14 @@ import useAction from "../../hooks/useAction";
 import { PLAYER_DIMENTIONS } from "../../config/constants";
 
 function Player() {
-    const {direction, animationFrame, position, walk} = useWalk();
-    const {action} = useAction();
+    const { direction, animationFrame, position, walk } = useWalk();
+    const { action } = useAction();
 
     //controls hook
     useKeyboard((e) => {
         e.preventDefault()
 
-        switch(e.keyCode){
+        switch (e.keyCode) {
             case 40:
             case 83:
                 return walk('down')
@@ -28,8 +28,8 @@ function Player() {
             case 13:
             case 32:
                 return action(position)
-            default:;
-        } 
+            default: ;
+        }
     })
 
     return <Character sprite={`/sprites/characters/Amelia.png`} data={PLAYER_DIMENTIONS} frame={animationFrame} direction={direction} position={position} />

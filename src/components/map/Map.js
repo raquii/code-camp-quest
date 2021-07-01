@@ -1,7 +1,7 @@
 
 // import { MAP_TABLE } from "../../config/constants";
 
-function Map(){
+function Map() {
 
     // const mapGrid = MAP_TABLE.map((row, y)=>(
     //     <div key = {y} style={{display: "flex"}}>
@@ -9,10 +9,10 @@ function Map(){
     //             <div key={tile} style = {{ boxSizing: "border-box", borderTop: "1px solid black", borderRight: "1px solid black", width: "32px", height: "32px", backgroundColor: tile.walk ? "green" : "red", opacity: 0.5}} />
     //         ))}
     //     </div>))
-    
-    return(
+
+    return (
         <div id="map">
-            
+
             <div id="bedroom"
                 style={{
                     boxSizing: "border-box",
@@ -21,7 +21,7 @@ function Map(){
                     backgroundPosition: "0px 0px",
                     display: "inline-block",
                     width: "384px",
-                    height:"384px"
+                    height: "384px"
                 }}
             >
                 {/* {mapGrid} */}
