@@ -8,25 +8,25 @@ const reducer = (state, action) => {
             return {
                 direction: 0,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: { ...state.position, y: state.position.y + 1 }
+                position: { ...state.position, y: state.position.y + 2 }
             }
         case 'left':
             return {
                 direction: 1,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: { ...state.position, x: state.position.x - 1 }
+                position: { ...state.position, x: state.position.x - 2 }
             }
         case 'right':
             return {
                 direction: 2,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: { ...state.position, x: state.position.x + 1 }
+                position: { ...state.position, x: state.position.x + 2 }
             }
         case 'up':
             return {
                 direction: 3,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
-                position: { ...state.position, y: state.position.y - 1 }
+                position: { ...state.position, y: state.position.y - 2 }
             }
         default: ;
     }
