@@ -1,0 +1,11 @@
+#HUDDiv{
+    background-color: pink;
+    border-radius: 4px;
+    border: 1px solid pink;
+    width: 384px;
+    display: flex;
+    align-items: center;
+    align-content: baseline;
+    justify-content: space-evenly;
+    padding: 3px;
+}
