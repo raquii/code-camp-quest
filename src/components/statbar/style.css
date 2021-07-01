@@ -3,9 +3,10 @@
     border-radius: 2px;
     background-color: pink;
     display: flex;
-    width: fit-content;
+    width: 150px;
     height: auto;
     align-items: center;
+    justify-content: space-around;
     padding: 1px;
     font-size: 14px;
 }
