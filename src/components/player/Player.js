@@ -1,31 +1,34 @@
 import Character from "../character/Character"
 import useKeyboard from "../../hooks/useKeyboard";
 import useWalk from "../../hooks/useWalk";
+import { PLAYER_DIMENTIONS } from "../../config/constants";
 
 function Player() {
-    //destructuring useWalk, setting number of animations in sprite sheet
-    const { direction, step, walk, position } = useWalk(6)
-
-    //setting sprite dimentions for player.
-    const data = {
-        h: 45,
-        w: 32
-    };
-
+    const {direction, animationFrame, position, tile, walk} = useWalk();
     //controls hook
     useKeyboard((e) => {
         e.preventDefault()
-        
-        if(e.key.includes("Arrow")){
-            walk(e.key.replace("Arrow", "").toLowerCase());
-        }else if(e.key==="Enter"){
-            //need to make an interact hook
-            console.log(e.key)
-        }
-        
+
+        switch(e.keyCode){
+            case 40:
+            case 83:
+                return walk('down')
+            case 37:
+            case 65:
+                return walk('left')
+            case 39:
+            case 68:
+                return walk('right')
+            case 38:
+            case 87:
+                return walk('up')
+            case 13:
+            case 32:
+                console.log("action key pressed")
+        } 
     })
 
-    return <Character sprite={`/sprites/characters/Amelia.png`} data={data} step={step} direction={direction} position={position} />
+    return <Character sprite={`/sprites/characters/Amelia.png`} data={PLAYER_DIMENTIONS} frame={animationFrame} direction={direction} position={position} />
 
 }
 
