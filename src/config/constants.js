@@ -66,7 +66,6 @@ export const MAP_TABLE = [
 
 export const PLAYER_FRAMES = 6;
 export const PLAYER_DIMENTIONS = { h: 45, w: 32 };
-export const PLAYER_SIZE = 40;
 
 // export const DOG_DIMENTIONS = {}
 
