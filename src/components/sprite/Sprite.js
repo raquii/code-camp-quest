@@ -6,8 +6,8 @@ function Sprite({ image, data, position }) {
     return <div
         style={{
             position: "absolute",
-            top: position.y,
-            left: position.x,
+            top: position.y - 13,
+            left: position.x - 4,
             height: `${h}px`,
             width: `${w}px`,
             backgroundImage: `url(${image})`,
