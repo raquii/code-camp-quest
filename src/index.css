@@ -3,6 +3,7 @@ body {
   font-family: 'VT323', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:dimgray;
 }
 
 code {
