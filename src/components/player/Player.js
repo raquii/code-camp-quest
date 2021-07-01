@@ -1,10 +1,13 @@
 import Character from "../character/Character"
 import useKeyboard from "../../hooks/useKeyboard";
 import useWalk from "../../hooks/useWalk";
+import useAction from "../../hooks/useAction";
 import { PLAYER_DIMENTIONS } from "../../config/constants";
 
 function Player() {
-    const {direction, animationFrame, position, tile, walk} = useWalk();
+    const {direction, animationFrame, position, walk} = useWalk();
+    const {action} = useAction();
+
     //controls hook
     useKeyboard((e) => {
         e.preventDefault()
@@ -24,7 +27,8 @@ function Player() {
                 return walk('up')
             case 13:
             case 32:
-                console.log("action key pressed")
+                return action(position)
+            default:;
         } 
     })
 
