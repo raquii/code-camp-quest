@@ -1,24 +1,25 @@
 #statDiv{
     border: 1px solid rgb(255, 127, 127);
-    border-radius: 2px;
-    background-color: pink;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.87);
     display: flex;
     width: 150px;
     height: auto;
     align-items: center;
     justify-content: space-around;
     padding: 1px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 #statName{
     margin: 0px 1px;
+    color: rgb(255, 127, 127);
 }
 
 #statBarContainer{
-    border: 1px solid rgb(255, 0, 0);
-    background-color: white;
-    border-radius: 2px;
+    border: 1px solid rgb(255, 127, 127);
+    background-color: pink;
+    border-radius: 4px;
     width: 100px;
     margin-left: 2px;
     margin-right: 2px;
