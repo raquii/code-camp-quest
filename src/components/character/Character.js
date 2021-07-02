@@ -1,6 +1,6 @@
 import Sprite from "../sprite/Sprite";
 
-function Character({ sprite, data, position = { x: 0, y: 0 }, frame = 0, direction = 0 }) {
+function Character({ sprite, data, position, frame = 0, direction = 0 }) {
     //destructuring data prop
     const { h, w } = data;
 

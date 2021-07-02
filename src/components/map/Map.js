@@ -1,9 +1,10 @@
 
 // import { MAP_TABLE } from "../../config/constants";
 import MapTile from "./MapTile";
+import './style.css'
 
-function Map() {
-
+function Map({x}) {
+    
     /* This is for debugging the MAP_TABLE*/
 
     // const mapGrid = MAP_TABLE.map((row, y)=>(
@@ -14,7 +15,14 @@ function Map() {
     //     </div>))
 
     return (
-        <div id="map">
+        <div id="map"  style={{
+            zIndex:1,
+            position: "absolute",
+            top: 0,
+            left: -x - 10,
+            
+        }}
+            >
             <MapTile map={`bedroom`} />
             <MapTile map={`office`} />
             <MapTile map={`kitchen`} />

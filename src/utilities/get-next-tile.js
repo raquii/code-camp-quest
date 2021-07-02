@@ -1,7 +1,7 @@
 import { MAP_TABLE } from "../config/constants";
 
 function getNextTile(direction, position) {
-    const currentXCord = (position.x - (position.x % 32)) / 32
+    const currentXCord = ((position.x + 192) - (position.x % 32)) / 32
     const currentYCord = (position.y - (position.y % 32)) / 32
 
     switch (direction) {

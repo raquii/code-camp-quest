@@ -36,7 +36,7 @@ function useWalk() {
     const [state, dispatch] = useReducer(reducer, {
         direction: 0, //direction values match sprite sheet y-index values
         animationFrame: 0, //animationFrame values match sprite sheet x-index values
-        position: { x: 256, y: 192 }, //sets starting coordinates next to bed
+        position: { x: 0, y: 192 }, //sets starting coordinates next to bed
     })
 
     const { direction, animationFrame, position } = state;
