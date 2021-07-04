@@ -17,6 +17,10 @@ function Map({ x }) {
             <MapTile map={`bedroom`} />
             <MapTile map={`office`} />
             <MapTile map={`kitchen`} />
+            
+            <MapTile map={'outside1'} />
+            <MapTile map={'outside2'} />
+            <MapTile map={'outside3'} />
         </div>
     )
 }
