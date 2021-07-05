@@ -20,7 +20,7 @@ function useAction() {
     }
 
     function action(){
-        console.log('this should call for the action to occur')
+        if(isAction) console.log('an action should occur')
     }
 
     return {

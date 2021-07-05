@@ -52,7 +52,15 @@ function Viewport() {
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
 
             <div style={{ zIndex: 10 }} >
-                {showMessage && <Message message={'Testing, testing, 1, 2, 3.'} ignorable={true} task={'Walk the Dog'} handleDo={handleDo} handleIgnore={handleIgnore} />}
+                {showMessage &&
+                    <Message
+                        message={'Testing, testing, 1, 2, 3.'}
+                        ignorable={true}
+                        task={'Walk the Dog'}
+                        handleDo={handleDo}
+                        handleIgnore={handleIgnore}
+                    />
+                }
             </div>
 
 
