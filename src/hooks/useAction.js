@@ -1,31 +1,30 @@
-// import { useReducer } from "react";
+import { useState } from "react";
 import { MAP_TABLE } from "../config/constants";
 
 function useAction() {
 
-    // const [state, dispatch] = useReducer(reducer, {
+    const [isAction, setIsAction] = useState(false)
 
-    // })
-
-    // const { direction, animationFrame, position, tile } = state;
-
-    function action({ x, y }) {
-        const currentXCord = (x - (x % 32)) / 32
+    function actionAlert({ x, y }) {
+        const currentXCord = ((x + 192) - (x % 32)) / 32
         const currentYCord = (y - (y % 32)) / 32
-        console.log(x, y)
-        console.log(currentXCord, currentYCord)
-        console.log(MAP_TABLE[currentYCord][currentXCord])
+        const currentTile = MAP_TABLE[currentYCord][currentXCord]["action"] 
+        // console.log(x + 192, y)
+        // console.log(currentXCord, currentYCord)
+        // console.log(MAP_TABLE[currentYCord][currentXCord])
 
-        if (MAP_TABLE[currentYCord][currentXCord]["action"]) {
-            console.log("action tile")
-        } else {
-            console.log("not an action tile")
+        if (currentTile !== isAction) {
+            console.log("changing isAction to", !isAction)
+            setIsAction(isAction=> !isAction)
         }
+    }
 
+    function action(){
+        console.log('this should call for the action to occur')
     }
 
     return {
-        action
+        action, isAction, actionAlert
     }
 }
 
