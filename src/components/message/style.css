@@ -1,0 +1,34 @@
+#messageContainer{
+    position: absolute;
+    top: 160px;
+    left: 40px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.897);
+    align-self: center;
+    z-index: 10;
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid rgb(255, 127, 127);
+    border-radius: 4px;
+    color: rgb(255, 127, 127);
+}
+
+#messageContainer > button{
+    color:rgb(255, 127, 127);
+    background-color: white;
+    margin: 8px;
+    border: 2px solid rgb(255, 127, 127);
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+#messageContainer > button:hover{
+    color:white;
+    background-color: rgb(255, 127, 127);
+    margin: 8px;
+    border: 2px solid rgb(255, 127, 127);
+    border-radius: 4px;
+    
+}
