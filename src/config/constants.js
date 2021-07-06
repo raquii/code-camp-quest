@@ -68,6 +68,7 @@ export const MAP_TABLE = [
 export const PLAYER_FRAMES = 6;
 export const PLAYER_DIMENTIONS = { h: 45, w: 32 };
 
-// export const DOG_DIMENTIONS = {}
 
-export const DIRECTION_AXIS = { left: 'x', right: 'x', up: 'y', down: 'y' }
+
+
+
