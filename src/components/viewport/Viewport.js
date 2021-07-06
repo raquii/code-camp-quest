@@ -1,15 +1,20 @@
 import './style.css'
 import { VIEWPORT_SIZE } from '../../config/constants';
+import {useDispatch, useSelector} from 'react-redux'
+
 import useWalk from '../../hooks/useWalk';
 import useKeyboard from '../../hooks/useKeyboard';
 import useAction from '../../hooks/useAction';
 import Player from "../player/Player";
 import Map from "../map/Map";
+import Message from '../message/Message';
 
 
 function Viewport() {
     const { direction, animationFrame, position, walk } = useWalk();
     const { action, isAction, actionAlert } = useAction();
+
+    const message = useSelector(state => state.rootReducer.messages.display)
 
     //controls hook
     useKeyboard((e) => {
@@ -35,29 +40,18 @@ function Viewport() {
         }
     })
 
-    // function handleIgnore() {
-    //     setShowMessage(!showMessage)
-    // }
-
-    // function handleDo() {
-    //     console.log('Doing')
-    // }
-
+    function handleDo() {
+        console.log('Doing')
+    }
 
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
 
-            {/* <div style={{ zIndex: 10 }} >
-                {showMessage &&
-                    <Message
-                        message={'Testing, testing, 1, 2, 3.'}
-                        ignorable={true}
-                        task={'Walk the Dog'}
-                        handleDo={handleDo}
-                        handleIgnore={handleIgnore}
-                    />
+            <div style={{ zIndex: 10 }} >
+                {message &&
+                    <Message handleDo={handleDo} />
                 }
-            </div> */}
+            </div>
 
 
             <Player
