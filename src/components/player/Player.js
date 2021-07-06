@@ -1,5 +1,5 @@
 import Character from "../character/Character"
-import Alert from "../../alert/Alert";
+import Alert from "../alert/Alert";
 import { PLAYER_DIMENTIONS } from "../../config/constants";
 
 function Player({frame, direction, position, isAction}) {
