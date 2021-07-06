@@ -2,8 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     display: true,
-    content: '',
+    content: 'Welcome to the Game',
     ignorable: true,
+    taskName: 'Play'
 };
 
 const messageSlice = createSlice({
@@ -19,11 +20,14 @@ const messageSlice = createSlice({
         toggleIgnorable: state => {
             state.ignorable = !state.ignorable
         },
+        setTaskName: (state, action) =>{
+            state.taskName = action.payload
+        },
     }
 })
 
-const { toggleDisplay, setMessageText, toggleIgnorable } = messageSlice.actions;
+const { toggleDisplay, setMessageText, toggleIgnorable, setTaskName } = messageSlice.actions;
 
-export { toggleDisplay, setMessageText, toggleIgnorable }
+export { toggleDisplay, setMessageText, toggleIgnorable, setTaskName }
 
 export default messageSlice.reducer
