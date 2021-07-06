@@ -1,51 +1,36 @@
 import './style.css'
-import { useReducer, useEffect } from 'react';
-
-function reducer(state, action) {
-    switch (action.type) {
-        case 'minuteChange':
-            return { hour: state.hour, minute: state.minute + 1, midday: state.midday }
-        case 'hourChange':
-            return { hour: state.hour + 1, minute: 0, midday: state.midday }
-        case 'noon':
-            return { hour: state.hour + 1, minute: 0, midday: "pm" }
-        case 'one':
-            return { hour: 1, minute: 0, midday: state.midday }
-        default: ;
-    }
-}
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { minuteChange, hourChange, middayToggle, afterNoon } from './clockSlice'
 
 
 function Clock() {
+    const dispatch = useDispatch();
 
-    const [state, dispatch] = useReducer(reducer, {
-        hour: 8, minute: 0, midday: "am"
-    })
-
-    const { hour, minute, midday } = state;
+    const hour = useSelector(state => state.rootReducer.clock.hour)
+    const minute = useSelector(state => state.rootReducer.clock.minute)
+    const midday = useSelector(state => state.rootReducer.clock.midday)
 
     useEffect(() => {
         const interval = setInterval(() => {
             if (minute < 5) {
-                dispatch({ type: 'minuteChange' })
+                dispatch(minuteChange())
             } else if (minute === 5 && hour === 11) {
-                dispatch({ type: 'noon' })
+                dispatch(middayToggle())
             } else if (minute === 5 && hour === 12) {
-                dispatch({ type: 'one' })
+                dispatch(afterNoon())
             } else {
-                dispatch({ type: 'hourChange' })
+                dispatch(hourChange())
             }
         }, 5000)
-
 
         return () => {
             clearInterval(interval)
         }
-    }, [hour, minute])
 
+    }, [dispatch, hour, minute])
 
-
-    return <div id='clock'> {hour}:{minute}0 {midday} | Day 1 </div>
+    return <div id='clock'> {hour}:{minute}0 {midday ? 'pm' : 'am'} | Day 1 </div>
 }
 
 export default Clock;
