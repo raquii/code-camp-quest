@@ -1,21 +1,24 @@
+import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 
 import HUD from "../hud/HUD"
 import Viewport from "../viewport/Viewport";
 import Button from "../button/Button";
-import { useState } from "react";
-
+import { togglePaused } from "./gameSlice"
 
 function Game() {
-    const [isPaused, setIsPaused] = useState(false);
+    const dispatch = useDispatch();
+
+    const paused = useSelector(state => state.rootReducer.game.paused);
 
     function onPauseClick() {
-        setIsPaused(!isPaused)
+        dispatch(togglePaused())
     }
 
     return (
         <>
             <Viewport />
-            <Button label={isPaused ? '⏸️' : '▶'} handleClick={onPauseClick} />
+            <Button label={paused ? '⏸️' : '▶'} handleClick={onPauseClick} />
             <HUD />
         </>
     )
