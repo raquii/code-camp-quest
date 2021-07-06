@@ -1,19 +1,15 @@
 import './style.css'
 import { VIEWPORT_SIZE } from '../../config/constants';
-import { useContext } from 'react';
 import useWalk from '../../hooks/useWalk';
 import useKeyboard from '../../hooks/useKeyboard';
 import useAction from '../../hooks/useAction';
-import { MessageContext } from '../../utilities/show-message';
 import Player from "../player/Player";
 import Map from "../map/Map";
-import Message from '../message/Message';
+
 
 function Viewport() {
     const { direction, animationFrame, position, walk } = useWalk();
     const { action, isAction, actionAlert } = useAction();
-
-    const [showMessage, setShowMessage] = useContext(MessageContext)
 
     //controls hook
     useKeyboard((e) => {
@@ -39,19 +35,19 @@ function Viewport() {
         }
     })
 
-    function handleIgnore() {
-        setShowMessage(!showMessage)
-    }
+    // function handleIgnore() {
+    //     setShowMessage(!showMessage)
+    // }
 
-    function handleDo() {
-        console.log('Doing')
-    }
+    // function handleDo() {
+    //     console.log('Doing')
+    // }
 
 
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
 
-            <div style={{ zIndex: 10 }} >
+            {/* <div style={{ zIndex: 10 }} >
                 {showMessage &&
                     <Message
                         message={'Testing, testing, 1, 2, 3.'}
@@ -61,7 +57,7 @@ function Viewport() {
                         handleIgnore={handleIgnore}
                     />
                 }
-            </div>
+            </div> */}
 
 
             <Player

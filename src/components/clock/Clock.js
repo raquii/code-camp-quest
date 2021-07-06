@@ -41,7 +41,7 @@ function Clock() {
         return () => {
             clearInterval(interval)
         }
-    }, [state])
+    }, [hour, minute])
 
 
 
