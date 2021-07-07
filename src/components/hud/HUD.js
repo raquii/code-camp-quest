@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { decreaseStat, increaseStat } from '../game/gameSlice'
+import { setMessage, setGameOver } from '../message/messageSlice';
 
 import StatBar from "../statbar/StatBar";
 import Clock from "../clock/Clock";
@@ -21,16 +22,25 @@ function HUD() {
 
         if(paused){
             clearInterval(foodInt)
+        }else if(food === 50){
+            dispatch(setMessage(`Luna is hungry!`))
+            dispatch(decreaseStat('foodStat'))
+        }else if(food === 20){
+            dispatch(setMessage(`Luna is *really* hungry! Quick: Get to her bowl!`))
+            dispatch(decreaseStat('foodStat'))
+        }else if(food === 0){
+            dispatch(setGameOver())
+            clearInterval(foodInt)
         }else{
             foodInt =  setInterval(() => {
                 dispatch(decreaseStat('foodStat'))
-            }, 1000)
+            }, 2000)
         }
 
         return () => {
             clearInterval(foodInt)
         }
-    }, [dispatch, paused])
+    }, [dispatch, paused, food])
 
     useEffect(() => {
         let walkInt;
@@ -47,6 +57,8 @@ function HUD() {
             clearInterval(walkInt)
         }
     }, [dispatch, paused])
+
+
 
     return (
         <div id='HUDDiv'>
