@@ -2,10 +2,12 @@ import { combineReducers } from "redux";
 
 import messageSlice from "./components/message/messageSlice";
 import gameSlice from "./components/game/gameSlice";
+import clockSlice from "./components/clock/clockSlice";
 
 const rootReducer = combineReducers({
-    messages: messageSlice,
-    game: gameSlice
+    message: messageSlice,
+    game: gameSlice,
+    clock: clockSlice,
 })
 
 export default rootReducer;
