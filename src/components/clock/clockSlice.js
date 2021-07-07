@@ -25,12 +25,15 @@ const clockSlice = createSlice({
         afterNoon: state => {
             state.hour = 1
             state.minute = 0
+        },
+        resetClock: state=>{
+            return initialState
         }
     }
 })
 
-const { minuteChange, hourChange, middayToggle, afterNoon } = clockSlice.actions;
+const { minuteChange, hourChange, middayToggle, afterNoon, resetClock } = clockSlice.actions;
 
-export { minuteChange, hourChange, middayToggle, afterNoon }
+export { minuteChange, hourChange, middayToggle, afterNoon, resetClock }
 
 export default clockSlice.reducer

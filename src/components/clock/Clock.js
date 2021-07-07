@@ -29,7 +29,7 @@ function Clock() {
                 } else {
                     dispatch(hourChange())
                 }
-            }, 1000)
+            }, 5000)
         }
 
         return () => {
