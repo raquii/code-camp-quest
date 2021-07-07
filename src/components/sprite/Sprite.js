@@ -1,4 +1,4 @@
-function Sprite({ image, data, position }) {
+function Sprite({ image, data, top, left }) {
     //destructuring data prop
     const { y, x, h, w } = data;
 
@@ -7,8 +7,8 @@ function Sprite({ image, data, position }) {
         style={{
             position: "absolute",
             zIndex: 2,
-            top: position.y - 13,
-            left: "192px",
+            top: top - 13,
+            left: `${left}px`,
             height: `${h}px`,
             width: `${w}px`,
             backgroundImage: `url(${image})`,

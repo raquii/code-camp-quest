@@ -9,7 +9,7 @@ function Map({ x }) {
                 zIndex: 1,
                 position: "absolute",
                 top: 0,
-                left: -x - 16,
+                left: -x,
 
             }}
         >

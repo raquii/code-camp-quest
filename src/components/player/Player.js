@@ -1,24 +1,38 @@
 import Character from "../character/Character"
-import Alert from "../alert/Alert";
-import { PLAYER_DIMENTIONS } from "../../config/constants";
 
-function Player({frame, direction, position, isAction}) {
-    
+import { PLAYER_DIMENTIONS } from "../../config/constants";
+import Sprite from "../sprite/Sprite";
+import Dog from "../dog/Dog";
+
+function Player({ frame, direction, dogFrame, position, dogPosition, isAction }) {
+    const top = position.y;
+    const left = 192;
+
     return (
         <>
-           {isAction && 
-            <Alert 
-                image={`/sprites/question.png`} 
-                position={position}
+            {isAction &&
+                <Sprite
+                    image={`/sprites/alert.png`}
+                    data={{ h: 32, w: 32, x: 0, y: 0 }}
+                    top={top - 30}
+                    left={left}
+                />
+            }
+
+            <Character
+                sprite={`/sprites/characters/Amelia.png`}
+                data={PLAYER_DIMENTIONS}
+                frame={frame}
+                direction={direction}
+                top={top}
+                left={left}
             />
-           }
             
-            <Character 
-                sprite={`/sprites/characters/Amelia.png`} 
-                data={PLAYER_DIMENTIONS} 
-                frame={frame} 
-                direction={direction} 
-                position={position} 
+            <Dog
+                frame = {dogFrame}
+                direction = {direction}
+                top = {dogPosition.top}
+                left = {dogPosition.left}
             />
         </>
     )

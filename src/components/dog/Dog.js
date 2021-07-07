@@ -1,10 +1,16 @@
 import Character from "../character/Character";
-import { useState } from "react";
+import { DOG_DIMENTIONS } from "../../config/constants";
 
-function Dog() {
-    const [isIdle, setIsIdle] = useState(false);
-
-    return <Character sprite={`/sprites/characters/pup.png`} data={DOG_DIMENTIONS} frame={animationFrame} direction={direction} position={position} />
+function Dog({frame, direction, top, left}) {
+    
+    return <Character 
+            sprite={`/sprites/characters/pup.png`} 
+            data={DOG_DIMENTIONS} 
+            frame={frame} 
+            direction={direction} 
+            top={top}
+            left={left}
+        />
 
 }
 
