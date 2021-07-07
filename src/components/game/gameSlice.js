@@ -9,12 +9,12 @@ const initialState = {
         playStat: 100,
     },
     taskStat: 0,
-    totalTasks: [],
+    totalTasks: [1,1,1,1,1,1],
     day: 1,
 };
 
-//need to create daily task array by passing state.day to getDailyTasks
 
+//need to create daily task array by passing state.day to getDailyTasks
 const gameSlice = createSlice({
     name: 'game',
     initialState,
@@ -23,8 +23,9 @@ const gameSlice = createSlice({
             state.paused = !state.paused
         },
         newDay: (state, action) => {
+            const newTasks = getDailyTasks(state.day)
             state.day += 1
-            state.totalTasks = action.payload
+            state.totalTasks = newTasks
         },
         decreaseStat: (state, action) => {
             const stat = action.payload
@@ -33,13 +34,16 @@ const gameSlice = createSlice({
         increaseStat: (state, action) => {
             const stat = action.payload
             state.stats[stat] += 1
+        },
+        resetGame: state =>{
+            return initialState
         }
     }
 
 })
 
-const { togglePaused, newDay, decreaseStat, increaseStat } = gameSlice.actions;
+const { togglePaused, newDay, decreaseStat, increaseStat, resetGame } = gameSlice.actions;
 
-export { togglePaused, newDay, decreaseStat, increaseStat }
+export { togglePaused, newDay, decreaseStat, increaseStat, resetGame }
 
 export default gameSlice.reducer
