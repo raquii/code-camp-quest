@@ -10,11 +10,12 @@ import Map from "../map/Map";
 import Message from '../message/Message';
 
 
+
 function Viewport() {
-    const { direction, animationFrame, position, walk } = useWalk();
+    const { direction, animationFrame, dogAnimationFrame, position, dogPosition, walk } = useWalk();
     const { action, isAction, actionAlert } = useAction();
 
-    const message = useSelector(state => state.rootReducer.messages.display)
+    const message = useSelector(state => state.rootReducer.message.display)
 
     //controls hook
     useKeyboard((e) => {
@@ -59,7 +60,10 @@ function Viewport() {
                 direction={direction}
                 position={position}
                 isAction={isAction}
+                dogFrame={dogAnimationFrame}
+                dogPosition={dogPosition}
             />
+            
             <Map
                 x={position.x}
             />

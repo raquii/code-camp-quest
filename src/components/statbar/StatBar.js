@@ -8,7 +8,7 @@ function StatBar({ stat = 100, statName = "food" }) {
                 <div
                     id="statDisplay"
                     style={{
-                        backgroundColor: "rgb(255, 127, 127)",
+                        backgroundColor: stat < 20 ? "red" : "rgb(255, 127, 127)",
                         width: `${stat}px`,
                         height: "13px",
                     }}
