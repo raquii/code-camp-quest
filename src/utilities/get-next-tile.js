@@ -8,7 +8,7 @@ function getNextTile(direction, position) {
         case 'down':
             return MAP_TABLE[currentYCord + 1][currentXCord]["walk"];
         case 'left':
-            return MAP_TABLE[currentYCord][currentXCord]["walk"];
+            return MAP_TABLE[currentYCord][currentXCord - 1]["walk"];
         case 'right':
             return MAP_TABLE[currentYCord][currentXCord + 1]["walk"];
         case 'up':
