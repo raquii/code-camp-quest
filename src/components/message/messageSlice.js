@@ -4,7 +4,7 @@ const initialState = {
     display: true,
     content: 'Welcome to the Game',
     ignorable: true,
-    taskName: 'Play'
+    endGame: false,
 };
 
 const messageSlice = createSlice({
@@ -14,20 +14,25 @@ const messageSlice = createSlice({
         toggleDisplay: state => {
             state.display = !state.display
         },
-        setMessageText: (state, action) =>{
+        setMessage: (state, action) =>{
+            state.display = !state.display
             state.content = action.payload
+            state.ignorable = true
         },
-        toggleIgnorable: state => {
-            state.ignorable = !state.ignorable
+        setGameOver: (state)=>{
+            state.display = true
+            state.content = 'Oh no! Game Over!'
+            state.ignorable = true
+            state.endGame = true
         },
-        setTaskName: (state, action) =>{
-            state.taskName = action.payload
-        },
+        resetMessage: state =>{
+            return initialState
+        }
     }
 })
 
-const { toggleDisplay, setMessageText, toggleIgnorable, setTaskName } = messageSlice.actions;
+const { toggleDisplay, setMessage, setGameOver, resetMessage } = messageSlice.actions;
 
-export { toggleDisplay, setMessageText, toggleIgnorable, setTaskName }
+export { toggleDisplay, setMessage, setGameOver, resetMessage }
 
 export default messageSlice.reducer
