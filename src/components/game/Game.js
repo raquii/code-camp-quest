@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-
+import Console from '../console/Console';
 import HUD from "../hud/HUD"
 import Viewport from "../viewport/Viewport";
 import Button from "../button/Button";
@@ -10,7 +10,6 @@ function Game() {
     const dispatch = useDispatch();
 
     const paused = useSelector(state => state.rootReducer.game.paused);
-    const message = useSelector(state => state.rootReducer.message.display);
 
     function onPauseClick() {
         dispatch(togglePaused())
@@ -19,12 +18,14 @@ function Game() {
     return (
         <>
             <Viewport />
-            {!message &&
-                <Button 
-                    label={paused ? '⏸️' : '▶'} 
-                    handleClick={onPauseClick} 
-                />
-            }
+            
+            <Console/>
+            <Button 
+                
+                label={!paused ? '⏸️' : '▶'} 
+                handleClick={onPauseClick} 
+            />
+            
             <HUD />
         </>
     )
