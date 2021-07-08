@@ -10,7 +10,10 @@ const initialState = {
     taskStat: 0,
     totalTasks: [1,1,1,1,1,1],
     day: 1,
-    message: `It's another amazing day to code!`
+    message: `It's another amazing day to code!`,
+    dog: 'Luna',
+    bowl: false,
+    outside: false,
 };
 
 
@@ -21,6 +24,14 @@ const gameSlice = createSlice({
     reducers: {
         togglePaused: state => {
             state.paused = !state.paused
+        },
+        toggleBowl: (state, action) => {
+            state.bowl = !state.bowl
+            state.message = action.payload
+        },
+        toggleOutside: (state, action) => {
+            state.outside = !state.outside
+            state.message = action.payload
         },
         newDay: (state, action) => {
             const newTasks = getDailyTasks(state.day)
@@ -45,8 +56,8 @@ const gameSlice = createSlice({
 
 })
 
-const { togglePaused, newDay, decreaseStat, increaseStat, setMessage, resetGame } = gameSlice.actions;
+const { togglePaused, toggleBowl, toggleOutside, newDay, decreaseStat, increaseStat, setMessage, resetGame } = gameSlice.actions;
 
-export { togglePaused, newDay, decreaseStat, increaseStat, setMessage, resetGame }
+export { togglePaused, toggleBowl, toggleOutside, newDay, decreaseStat, increaseStat, setMessage, resetGame }
 
 export default gameSlice.reducer
