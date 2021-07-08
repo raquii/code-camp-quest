@@ -1,0 +1,25 @@
+.pause-btn{
+    color:rgb(255, 127, 127);
+    background-color: white;
+    border: 2px solid rgb(255, 127, 127);
+    font-family: monospace;
+   
+}
+
+.pause-btn:hover{
+    color:white;
+    background-color: rgb(255, 127, 127);
+    border: 2px solid rgb(255, 127, 127); 
+}
+
+.pause-btn:hover .regular{
+    display: none;
+}
+
+.onHover{
+    display: none;
+}
+
+.pause-btn:hover .onHover{
+    display: block;
+}
