@@ -5,7 +5,7 @@ import Sprite from "../sprite/Sprite";
 import Dog from "../dog/Dog";
 
 function Player({ frame, direction, dogFrame, position, dogPosition, isAction }) {
-    const top = position.y;
+    const top = position.top;
     const left = 192;
 
     return (

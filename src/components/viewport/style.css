@@ -4,3 +4,16 @@
     border: 3px solid pink;
     border-radius: 4px;
 }
+
+.paused{
+    background-color: rgba(0, 0, 0, 0.705);
+    width: 384px;
+    height: 384px;
+    position: relative;
+    text-align: center;
+    color:white;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

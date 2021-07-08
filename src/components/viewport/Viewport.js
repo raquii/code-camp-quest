@@ -15,7 +15,7 @@ function Viewport() {
     const { direction, animationFrame, dogAnimationFrame, position, dogPosition, walk } = useWalk();
     const { action, isAction, actionAlert } = useAction();
 
-    const message = useSelector(state => state.rootReducer.message.display)
+    const paused = useSelector(state => state.rootReducer.game.paused)
 
     //controls hook
     useKeyboard((e) => {
@@ -47,12 +47,9 @@ function Viewport() {
 
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
+            {/* <Message /> */}
 
-            <div style={{ zIndex: 10 }} >
-                {message &&
-                    <Message handleDo={handleDo} />
-                }
-            </div>
+            {paused && <div className='paused' style={{zIndex:3}}><span>PAUSED</span></div>}
 
 
             <Player
@@ -65,7 +62,7 @@ function Viewport() {
             />
             
             <Map
-                x={position.x}
+                x={position.left}
             />
 
             <div
