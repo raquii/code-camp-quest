@@ -1,13 +1,13 @@
 import './style.css'
 import { VIEWPORT_SIZE } from '../../config/constants';
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import useWalk from '../../hooks/useWalk';
 import useKeyboard from '../../hooks/useKeyboard';
 import useAction from '../../hooks/useAction';
 import Player from "../player/Player";
 import Map from "../map/Map";
-import Message from '../message/Message';
+
 
 
 
@@ -47,9 +47,13 @@ function Viewport() {
 
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
-            {/* <Message /> */}
+            
 
-            {paused && <div className='paused' style={{zIndex:3}}><span>PAUSED</span></div>}
+            {paused &&
+                <div className='paused' >
+                    <span> PAUSED </span>
+                </div>
+            }
 
 
             <Player
@@ -60,7 +64,7 @@ function Viewport() {
                 dogFrame={dogAnimationFrame}
                 dogPosition={dogPosition}
             />
-            
+
             <Map
                 x={position.left}
             />
