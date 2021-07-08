@@ -3,6 +3,7 @@ import { PLAYER_FRAMES, DOG_FRAMES } from "../config/constants";
 import getNextTile from "../utilities/get-next-tile";
 
 const reducer = (state, action) => {
+
     switch (action.type) {
         case 'down':
             return {
@@ -29,6 +30,7 @@ const reducer = (state, action) => {
                 dogPosition: state.dogPosition.left < 224 ? { ...state.dogPosition, left: state.dogPosition.left + 4 } : {...state.dogPosition}
             }
         case 'up':
+
             return {
                 direction: 3,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
