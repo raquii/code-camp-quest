@@ -12,6 +12,7 @@ function Clock() {
     const hour = useSelector(state => state.rootReducer.clock.hour)
     const minute = useSelector(state => state.rootReducer.clock.minute)
     const midday = useSelector(state => state.rootReducer.clock.midday)
+    const day = useSelector(state => state.rootReducer.game.day)
 
     useEffect(() => {
         let clockInterval;
@@ -38,7 +39,7 @@ function Clock() {
 
     }, [dispatch, hour, minute, paused])
 
-    return <div id='clock'> {hour}:{minute}0 {midday ? 'pm' : 'am'} | Day 1 </div>
+    return <div id='clock'> {hour}:{minute}0 {midday ? 'pm' : 'am'} | Day {day} </div>
 }
 
 export default Clock;

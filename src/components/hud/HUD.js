@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { decreaseStat, increaseStat } from '../game/gameSlice'
-
+import { decreaseStat} from '../game/gameSlice'
 
 import StatBar from "../statbar/StatBar";
 import Clock from "../clock/Clock";
@@ -12,11 +11,11 @@ function HUD() {
     const dispatch = useDispatch();
 
     const paused = useSelector(state => state.rootReducer.game.paused)
-
     const food = useSelector(state => state.rootReducer.game.stats.foodStat)
     const walk = useSelector(state => state.rootReducer.game.stats.walkStat)
     const tasks = useSelector(state => state.rootReducer.game.totalTasks)
 
+    //food decrement effect
     useEffect(() => {
         let foodInt;
 
@@ -40,6 +39,7 @@ function HUD() {
         }
     }, [dispatch, paused, food])
 
+    //walk decrement effect
     useEffect(() => {
         let walkInt;
 
@@ -56,6 +56,7 @@ function HUD() {
         }
     }, [dispatch, paused])
 
+    //generates task display string
     function addTasks(arr){
         let string = '';
         for(let i = 0; i < arr.length; i++){

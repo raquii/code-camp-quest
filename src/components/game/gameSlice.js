@@ -10,6 +10,7 @@ const initialState = {
     taskStat: 0,
     totalTasks: [1,1,1,1,1,1],
     day: 1,
+    message: `It's another amazing day to code!`
 };
 
 
@@ -34,6 +35,9 @@ const gameSlice = createSlice({
             const stat = action.payload
             state.stats[stat] += 1
         },
+        setMessage: (state, action)=>{
+            state.message = action.payload
+        },
         resetGame: state =>{
             return initialState
         }
@@ -41,8 +45,8 @@ const gameSlice = createSlice({
 
 })
 
-const { togglePaused, newDay, decreaseStat, increaseStat, resetGame } = gameSlice.actions;
+const { togglePaused, newDay, decreaseStat, increaseStat, setMessage, resetGame } = gameSlice.actions;
 
-export { togglePaused, newDay, decreaseStat, increaseStat, resetGame }
+export { togglePaused, newDay, decreaseStat, increaseStat, setMessage, resetGame }
 
 export default gameSlice.reducer

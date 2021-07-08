@@ -12,6 +12,7 @@ function Game() {
     const dispatch = useDispatch();
 
     const paused = useSelector(state => state.rootReducer.game.paused);
+    const message = useSelector(state => state.rootReducer.game.message);
 
     function onPauseClick() {
         dispatch(togglePaused())
@@ -20,7 +21,7 @@ function Game() {
     return (
         <>
             <Viewport />
-            <Console />
+            <Console message={message} />
             <Button 
                 label={paused ? '▶' : '❚❚'} 
                 hoverLabel={paused? 'RESUME' : 'PAUSE'}

@@ -16,7 +16,7 @@ function Dog({frame, direction, top, left}) {
                     top={top - 30}
                     left={left}
                 />
-            }
+        }
         <Character 
             sprite={`/sprites/characters/pup.png`} 
             data={DOG_DIMENTIONS} 

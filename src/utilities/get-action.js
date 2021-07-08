@@ -1,3 +1,4 @@
+
 function getAction(){
     switch(action.type){
         case 'dresser':
@@ -11,7 +12,7 @@ function getAction(){
         case 'plant':
             return{}
         case 'computer':
-            return{}
+            startTask()
         case 'fridge':
             return{}
         case 'sink':
@@ -24,5 +25,3 @@ function getAction(){
             return{}
     }
 }
-
-export default getAction;

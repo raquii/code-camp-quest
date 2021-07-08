@@ -41,13 +41,9 @@ function Viewport() {
         }
     })
 
-    function handleDo() {
-        console.log('Doing')
-    }
 
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
-            
 
             {paused &&
                 <div className='paused' >

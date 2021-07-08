@@ -133,7 +133,7 @@ export const ACTIONS = {
     614: 'clock',
 
     515: 'plant',
-    616: 'plant',
+    615: 'plant',
 
     517: 'computer',
     518: 'computer',
