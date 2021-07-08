@@ -3,12 +3,16 @@
     width: 384px;
     height: 80px;
     background-color: #1e1e2e;
+    border: 3px solid pink;
+    border-radius: 4px;
 }
+
 #console{
     background: #1e1e2e;
-    margin: 10px;
+    margin: 0px 16px ;
     display: flex;
     flex-flow: row wrap;
+    padding-bottom: 20px;
 }
 
 .typewriter{

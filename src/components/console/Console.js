@@ -1,10 +1,11 @@
 import './style.css';
 
-function Console(){
+function Console({message = "It's another great day to code!"}){
     return (
         <div id="console-container">
             <div id="console">
-                <p className="typewriter">&gt; This is a message for my haters.</p>
+                <p className="typewriter">&gt; {message}</p>
+                
             </div>
         </div>
     )
