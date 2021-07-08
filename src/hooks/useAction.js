@@ -1,31 +1,31 @@
 import { useState } from "react";
-import { MAP_TABLE } from "../config/constants";
+import { MAP_TABLE, ACTIONS } from "../config/constants";
 
 function useAction() {
+    const [isAction, setIsAction] = useState(false);
 
-    const [isAction, setIsAction] = useState(false)
-
-    function actionAlert({ x, y }) {
-        const currentXCord = ((x + 192) - (x % 32)) / 32
-        const currentYCord = (y - (y % 32)) / 32
-        const currentTile = MAP_TABLE[currentYCord][currentXCord]["action"] 
-        // console.log(x + 192, y)
-        // console.log(currentXCord, currentYCord)
-        // console.log(MAP_TABLE[currentYCord][currentXCord])
-
+    function actionAlert({ left, top }) {
+        const currentXCord = ((left + 192) - (left % 32)) / 32;
+        const currentYCord = (top - (top % 32)) / 32;
+        const currentTile = MAP_TABLE[currentYCord][currentXCord]["action"];
+        
         if (currentTile !== isAction) {
-            console.log("changing isAction to", !isAction)
-            setIsAction(isAction=> !isAction)
+            setIsAction(isAction=> !isAction);
         }
     }
 
-    function action(){
-        if(isAction) console.log('an action should occur')
+    function action({left,top}){
+        const currentXCord = ((left + 192) - (left % 32)) / 32;
+        const currentYCord = (top - (top % 32)) / 32;
+
+        if(isAction){
+            console.log(ACTIONS[`${currentYCord}${currentXCord}`])
+        } 
     }
 
     return {
         action, isAction, actionAlert
-    }
+    };
 }
 
 export default useAction;

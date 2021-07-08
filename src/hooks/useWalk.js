@@ -9,7 +9,7 @@ const reducer = (state, action) => {
                 direction: 0,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, y: state.position.y + 2 },
+                position: { ...state.position, top: state.position.top + 2 },
                 dogPosition: {...state.dogPosition, top: state.dogPosition.top + 2 } 
             }
         case 'left':
@@ -17,7 +17,7 @@ const reducer = (state, action) => {
                 direction: 1,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, x: state.position.x - 2 },
+                position: { ...state.position, left: state.position.left - 2 },
                 dogPosition: state.dogPosition.left> 160 ? { ...state.dogPosition, left: state.dogPosition.left - 4 } : {...state.dogPosition}
             }
         case 'right':
@@ -25,7 +25,7 @@ const reducer = (state, action) => {
                 direction: 2,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, x: state.position.x + 2 },
+                position: { ...state.position, left: state.position.left + 2 },
                 dogPosition: state.dogPosition.left < 224 ? { ...state.dogPosition, left: state.dogPosition.left + 4 } : {...state.dogPosition}
             }
         case 'up':
@@ -33,7 +33,7 @@ const reducer = (state, action) => {
                 direction: 3,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, y: state.position.y - 2 },
+                position: { ...state.position, top: state.position.top - 2 },
                 dogPosition: {...state.dogPosition, top: state.dogPosition.top - 2 }
             }
         default: ;
@@ -45,7 +45,7 @@ function useWalk() {
         direction: 0, //direction values match sprite sheet y-index values
         animationFrame: 0, //animationFrame values match sprite sheet x-index values
         dogAnimationFrame: 0,
-        position: { x: 0, y: 192 }, //sets starting coordinates next to bed
+        position: { left: 0, top: 192 }, //sets starting coordinates next to bed
         dogPosition: {left: 160, top: 202}
     })
 
