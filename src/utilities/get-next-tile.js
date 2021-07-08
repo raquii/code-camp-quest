@@ -1,18 +1,35 @@
 import { MAP_TABLE } from "../config/constants";
 
 function getNextTile(direction, position) {
-    const currentXCord = ((position.x + 192) - (position.x % 32)) / 32
-    const currentYCord = (position.y - (position.y % 32)) / 32
+    let newPos;
+    let X;
+    let Y;
 
     switch (direction) {
         case 'down':
-            return MAP_TABLE[currentYCord + 1][currentXCord]["walk"];
+            newPos = position.top + 24;
+            X = ((position.left + 192) - (position.left % 32)) / 32;
+            Y = (newPos - (newPos % 32)) / 32;
+            return MAP_TABLE[Y][X]["walk"];
+ 
         case 'left':
-            return MAP_TABLE[currentYCord][currentXCord]["walk"];
+            newPos = (position.left + 192) - 18;
+            X = (newPos - (newPos % 32)) / 32;
+            Y = (position.top - (position.top % 32)) / 32;
+            return MAP_TABLE[Y][X]["walk"];
+    
         case 'right':
-            return MAP_TABLE[currentYCord][currentXCord + 1]["walk"];
+            newPos = (position.left + 192) + 18
+            X = (newPos - (newPos % 32)) / 32
+            Y = (position.top - (position.top % 32)) / 32
+            return MAP_TABLE[Y][X]["walk"];
+ 
         case 'up':
-            return MAP_TABLE[currentYCord][currentXCord]["walk"];
+            newPos = position.top - 2
+            X = ((position.left + 192) - (position.left % 32)) / 32
+            Y = (newPos - (newPos % 32)) / 32
+            return MAP_TABLE[Y][X]["walk"];
+            
         default: ;
     };
 }
