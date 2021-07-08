@@ -1,14 +1,14 @@
-import { useReducer } from "react";
-
-const reducer = (state, action) => {
+function getAction(){
     switch(action.type){
-        case 'bed':
-            return{}
         case 'dresser':
+            return{}
+        case 'bed':
             return{}
         case 'window':
             return{}
         case 'clock':
+            return{}
+        case 'plant':
             return{}
         case 'computer':
             return{}
@@ -22,12 +22,7 @@ const reducer = (state, action) => {
             return{}
         case 'bowl':
             return{}
-        case 'outside':
-            return{}
     }
 }
 
-function getAction(){
-    const [state, dispatch] = useReducer(reducer, {obj: null})
-
-}
+export default getAction;
