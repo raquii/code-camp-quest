@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { decreaseStat, increaseStat } from '../game/gameSlice'
-import { setMessage, setGameOver } from '../message/messageSlice';
+
 
 import StatBar from "../statbar/StatBar";
 import Clock from "../clock/Clock";
@@ -15,7 +15,7 @@ function HUD() {
 
     const food = useSelector(state => state.rootReducer.game.stats.foodStat)
     const walk = useSelector(state => state.rootReducer.game.stats.walkStat)
-    const play = useSelector(state => state.rootReducer.game.stats.playStat)
+    const tasks = useSelector(state => state.rootReducer.game.totalTasks)
 
     useEffect(() => {
         let foodInt;
@@ -23,13 +23,11 @@ function HUD() {
         if(paused){
             clearInterval(foodInt)
         }else if(food === 50){
-            dispatch(setMessage(`Luna is hungry!`))
             dispatch(decreaseStat('foodStat'))
         }else if(food === 20){
-            dispatch(setMessage(`Luna is *really* hungry! Quick: Get to her bowl!`))
             dispatch(decreaseStat('foodStat'))
         }else if(food === 0){
-            dispatch(setGameOver())
+            
             clearInterval(foodInt)
         }else{
             foodInt =  setInterval(() => {
@@ -58,7 +56,13 @@ function HUD() {
         }
     }, [dispatch, paused])
 
-
+    function addTasks(arr){
+        let string = '';
+        for(let i = 0; i < arr.length; i++){
+            string += ' ■'
+        }
+        return string
+    }
 
     return (
         <div id='HUDDiv'>
@@ -66,7 +70,12 @@ function HUD() {
             <div id='statsContainer'>
                 <StatBar stat={food} statName={"food"} />
                 <StatBar stat={walk} statName={"walk"} />
-                <StatBar stat={play} statName={"play"} />
+                <div id="taskDiv">
+                    <p>tasks</p>
+                    <div id="taskBar" >
+                        {addTasks(tasks)}
+                    </div>
+                </div>
             </div>
         </div>
     )

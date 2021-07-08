@@ -6,7 +6,6 @@ const initialState = {
     stats: {
         foodStat: 100,
         walkStat: 100,
-        playStat: 100,
     },
     taskStat: 0,
     totalTasks: [1,1,1,1,1,1],
