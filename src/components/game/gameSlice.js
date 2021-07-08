@@ -29,11 +29,11 @@ const gameSlice = createSlice({
             state.bowl = !state.bowl
             state.message = action.payload
         },
-        toggleOutside: (state, action) => {
+        toggleOutside: state => {
             state.outside = !state.outside
-            state.message = action.payload
+            state.message = state.outside ? `Let's go for a walk!` : 'Okay, back to work.'
         },
-        newDay: (state, action) => {
+        newDay: state => {
             const newTasks = getDailyTasks(state.day)
             state.day += 1
             state.totalTasks = newTasks

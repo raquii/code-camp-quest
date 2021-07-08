@@ -1,14 +1,13 @@
 import './style.css'
 import { VIEWPORT_SIZE } from '../../config/constants';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import useWalk from '../../hooks/useWalk';
 import useKeyboard from '../../hooks/useKeyboard';
 import useAction from '../../hooks/useAction';
+
 import Player from "../player/Player";
 import Map from "../map/Map";
-
-
 
 
 function Viewport() {

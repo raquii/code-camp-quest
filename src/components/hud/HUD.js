@@ -54,7 +54,7 @@ function HUD() {
         return () => {
             clearInterval(foodInt)
         }
-    }, [dispatch, paused, food, bowl])
+    }, [dispatch, paused, food, bowl, dog])
 
     //walk decrement effect
     useEffect(() => {
@@ -92,7 +92,7 @@ function HUD() {
         return () => {
             clearInterval(walkInt)
         }
-    }, [dispatch, paused, walk, outside])
+    }, [dispatch, paused, walk, outside, dog])
 
     //generates task display string
     function addTasks(arr) {

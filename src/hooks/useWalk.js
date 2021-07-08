@@ -55,7 +55,7 @@ function useWalk() {
 
     function walk(arrowKey) {
         //checks if next tile allows for walking before dispatching to reducer
-        if (getNextTile(arrowKey, state.position)) {
+        if (getNextTile(arrowKey, state.position, "walk")) {
             dispatch({ type: arrowKey })
         }
 

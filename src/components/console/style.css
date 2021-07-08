@@ -1,5 +1,5 @@
 #console-container {
-    display: flex;
+    display: inline-flex;
     width: 384px;
     height: 80px;
     background-color: #1e1e2e;
