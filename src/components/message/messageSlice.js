@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     display: true,
-    content: 'Welcome to the Game',
-    ignorable: true,
-    endGame: false,
+    text: 'Welcome to the Game',
+    secondBtn: true
+    
+    
 };
 
 const messageSlice = createSlice({
@@ -17,13 +18,11 @@ const messageSlice = createSlice({
         setMessage: (state, action) =>{
             state.display = !state.display
             state.content = action.payload
-            state.ignorable = true
         },
         setGameOver: (state)=>{
             state.display = true
             state.content = 'Oh no! Game Over!'
-            state.ignorable = true
-            state.endGame = true
+           
         },
         resetMessage: state =>{
             return initialState

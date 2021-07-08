@@ -1,9 +1,8 @@
 import Button from "../button/Button";
 import './style.css';
-import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { resetMessage, toggleDisplay } from './messageSlice'
-import { togglePaused, resetGame } from '../game/gameSlice'
+import { resetGame } from '../game/gameSlice'
 
 function Message({ handleDo }) {
     const dispatch = useDispatch();
@@ -18,15 +17,9 @@ function Message({ handleDo }) {
             dispatch(resetMessage())
         }else{
             dispatch(toggleDisplay())
-            dispatch(togglePaused())
+            
         }  
     }
-
-    useEffect(() => {
-        if(message) 
-            dispatch(togglePaused())
-    }, [dispatch, message])
-
 
     return (
         <div id="messageContainer">
