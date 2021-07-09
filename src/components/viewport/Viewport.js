@@ -22,6 +22,7 @@ function Viewport() {
     const gameover = useSelector(state => state.rootReducer.game.gameover)
     const score = useSelector(state => state.rootReducer.game.day)
     const name = useSelector(state => state.rootReducer.game.dog)
+    const message = useSelector(state => state.rootReducer.game.message)
 
     //controls hook
     useKeyboard((e) => {
@@ -76,7 +77,11 @@ function Viewport() {
 
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
-
+            {message === `Night night!` &&
+                <div className='sleep' >
+                    
+                </div>
+            }
             {(paused && !gameover) &&
                 <div className='paused' >
                     <span> PAUSED </span>

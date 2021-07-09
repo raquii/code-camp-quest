@@ -3,7 +3,29 @@
     overflow: hidden;
     border: 3px solid pink;
     border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.705);
 }
+
+.sleep{
+    background-color: rgba(0, 0, 0, 0.952);
+    width: 384px;
+    height: 384px;
+    position: relative;
+    z-index: 3;
+    -webkit-animation: fadeinout 6.5s linear forwards;
+    animation: fadeinout 6.5s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 
 .paused{
     background-color: rgba(0, 0, 0, 0.705);
