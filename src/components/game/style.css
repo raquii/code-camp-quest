@@ -34,7 +34,6 @@ input[type=text]{
 input[type=text]:focus {
     outline: 3px solid transparent;
     border-color: hsl(var(--input-focus-h), var(--input-focus-s), var(--input-focus-l));
-    box-shadow: 0 0 0 3px hsla(var(--input-focus-h), var(--input-focus-s), calc(var(--input-focus-l) +40%), 0.8);
     background:#fafbfa;
     color:rgb(255, 127, 127);
 }
