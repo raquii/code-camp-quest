@@ -6,7 +6,7 @@ function Highscores() {
 
     useEffect(() => {
 
-        fetch("https://boiling-reaches-07903.herokuapp.com/highscores")
+        fetch("https://boiling-reaches-07903.herokuapp.com/highscores?_limit=10")
             .then(r => r.json())
             .then(data => setScores(data))
 
