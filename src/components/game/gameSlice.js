@@ -4,8 +4,8 @@ import getDailyTasks from "../../utilities/get-daily-tasks";
 const initialState = {
     paused: true,
     stats: {
-        foodStat: 100,
-        walkStat: 100,
+        foodStat: 80,
+        walkStat: 60,
         taskStat: 0,
     },
     totalTasks: [1,1,1],

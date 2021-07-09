@@ -35,7 +35,7 @@ function HUD() {
                 }, 100)
             } else if (food === 100) {
                 clearInterval(foodInt)
-                dispatch(toggleBowl(`Maybe we should go for a walk soon.`))
+                dispatch(toggleBowl(``))
             }
         //dispatch warnings to use if stat is low
         } else if (food === 50) {
@@ -50,7 +50,7 @@ function HUD() {
         } else {
             foodInt = setInterval(() => {
                 dispatch(decreaseStat('foodStat'))
-            }, 2000)
+            }, 1500)
         }
 
         return () => {
@@ -71,7 +71,7 @@ function HUD() {
             if (walk < 100) {
                 walkInt = setInterval(() => {
                     dispatch(increaseStat('walkStat'))
-                }, 1000)
+                }, 500)
             } else if (walk === 100) {
                 clearInterval(walkInt)
             }
@@ -88,7 +88,7 @@ function HUD() {
         } else {
             walkInt = setInterval(() => {
                 dispatch(decreaseStat('walkStat'))
-            }, 4000)
+            }, 2300)
         }
 
         return () => {
