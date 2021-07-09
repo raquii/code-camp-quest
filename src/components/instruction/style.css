@@ -1,0 +1,29 @@
+#instruct-div{
+    width: 320px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: 3px solid pink;
+    border-radius: 4px;
+    padding: 20px 0;
+    flex-flow: row wrap;
+}
+
+#instruct-div>p{
+    margin: 8px;
+}
+#instruction{
+    align-self: center;
+    font-size: 300%;
+    background-color: white;
+    border: 3px solid pink;
+    border-radius: 4px;
+    padding: 10px 45px;
+}
+#controls{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
