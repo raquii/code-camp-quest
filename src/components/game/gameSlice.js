@@ -6,9 +6,10 @@ const initialState = {
     stats: {
         foodStat: 100,
         walkStat: 100,
+        taskStat: 0,
     },
-    taskStat: 0,
-    totalTasks: [1,1,1,1,1,1],
+    totalTasks: [1,1,1],
+    working: false,
     day: 1,
     message: ``,
     dog: '',
@@ -34,6 +35,9 @@ const gameSlice = createSlice({
             state.outside = !state.outside
             state.message = state.outside ? `Let's go for a walk!` : 'Okay, back to work.'
         },
+        toggleWorking: state => {
+            state.working = !state.working
+        },
         newDay: state => {
             const newTasks = getDailyTasks(state.day)
             state.day += 1
@@ -57,6 +61,12 @@ const gameSlice = createSlice({
         setMessage: (state, action)=>{
             state.message = action.payload
         },
+        completeTask:state=>{
+            state.stats.taskStat = 0
+            state.working = false
+            state.totalTasks.pop()
+            state.message = `I finished that assignment!`
+        },
         endGame:(state, action)=>{
             state.gameover = true
             state.paused = true
@@ -69,8 +79,8 @@ const gameSlice = createSlice({
 
 })
 
-const { togglePaused, toggleBowl, toggleOutside, newDay, nameDog, decreaseStat, increaseStat, setMessage, endGame, resetGame } = gameSlice.actions;
+const { togglePaused, toggleBowl, toggleOutside, toggleWorking, newDay, nameDog, decreaseStat, increaseStat, setMessage, completeTask, endGame, resetGame } = gameSlice.actions;
 
-export { togglePaused, toggleBowl, toggleOutside, newDay, nameDog, decreaseStat, increaseStat, setMessage, endGame, resetGame }
+export { togglePaused, toggleBowl, toggleOutside, toggleWorking, newDay, nameDog, decreaseStat, increaseStat, setMessage, completeTask, endGame, resetGame }
 
 export default gameSlice.reducer
