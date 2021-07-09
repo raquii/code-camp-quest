@@ -75,7 +75,7 @@ function Viewport() {
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
 
-            {paused &&
+            {(paused && !gameover) &&
                 <div className='paused' >
                     <span> PAUSED </span>
                 </div>
