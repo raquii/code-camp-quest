@@ -19,9 +19,9 @@
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
     
-    -moz-animation: scroll-text 10s linear infinite;
-    -webkit-animation: scroll-text 10s linear infinite;
-    animation: scroll-text 10s linear infinite;
+    -moz-animation: scroll-text 15s linear infinite;
+    -webkit-animation: scroll-text 15s linear infinite;
+    animation: scroll-text 15s linear infinite;
 }
 
 @keyframes scroll-text {

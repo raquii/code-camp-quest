@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { increaseStat, completeTask } from "../game/gameSlice";
+import { increaseStat, completeTask, setMessage } from "../game/gameSlice";
 import './style.css'
 
 function Computer(){
@@ -13,9 +13,10 @@ function Computer(){
         let timer;
 
         if(taskStat < 100 && tasks.length > 0){
+            dispatch(setMessage(`I can hit 'enter' to stop working.`))
             timer = setInterval(()=>{
                 dispatch(increaseStat('taskStat'))
-            }, 100)  
+            }, 3000)
         }else if(taskStat === 100){
             clearInterval(timer)
             dispatch(completeTask())
