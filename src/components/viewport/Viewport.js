@@ -10,6 +10,7 @@ import useAction from '../../hooks/useAction';
 
 import Player from "../player/Player";
 import Map from "../map/Map";
+import Computer from "../computer/Computer"
 
 
 function Viewport() {
@@ -23,10 +24,11 @@ function Viewport() {
     const score = useSelector(state => state.rootReducer.game.day)
     const name = useSelector(state => state.rootReducer.game.dog)
     const message = useSelector(state => state.rootReducer.game.message)
+    const working = useSelector(state => state.rootReducer.game.working)
 
     //controls hook
     useKeyboard((e) => {
-        if (!paused) {
+        if (!paused && !working) {
             e.preventDefault()
 
             switch (e.keyCode) {
@@ -44,6 +46,7 @@ function Viewport() {
                     return walk('up') + actionAlert(position)
                 case 13:
                 case 32:
+                    console.log(position)
                     return action(position)
                 default: ;
             }
@@ -80,6 +83,7 @@ function Viewport() {
             {message === `Night night!` &&
                 <div className='sleep' />
             }
+            {(working && !paused) && <Computer/>}
             {(paused && !gameover) &&
                 <div className='paused' >
                     <span> PAUSED </span>
