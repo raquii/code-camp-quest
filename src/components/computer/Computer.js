@@ -16,7 +16,7 @@ function Computer(){
             dispatch(setMessage(`I can hit 'enter' to stop working.`))
             timer = setInterval(()=>{
                 dispatch(increaseStat('taskStat'))
-            }, 3000)
+            }, 200)
         }else if(taskStat === 100){
             clearInterval(timer)
             dispatch(completeTask())
