@@ -14,6 +14,7 @@ function HUD() {
     const food = useSelector(state => state.rootReducer.game.stats.foodStat)
     const walk = useSelector(state => state.rootReducer.game.stats.walkStat)
     const tasks = useSelector(state => state.rootReducer.game.totalTasks)
+    const currentTask = useSelector(state => state.rootReducer.game.stats.taskStat)
     const bowl = useSelector(state => state.rootReducer.game.bowl)
     const outside = useSelector(state => state.rootReducer.game.outside)
     const dog = useSelector(state => state.rootReducer.game.dog)
@@ -99,9 +100,21 @@ function HUD() {
     function addTasks(arr) {
         let string = '';
         for (let i = 0; i < arr.length; i++) {
-            string += ' ■'
+            string += '♥'
         }
         return string
+    }
+
+    //creates daily task taskbar
+    const dailyTasks = () => {
+        return(
+            <div id="taskDiv">
+                <p>tasks</p>
+                <div id="taskBar" >
+                    {addTasks(tasks)}
+                </div>
+            </div>
+        )
     }
 
     return (
@@ -110,12 +123,7 @@ function HUD() {
             <div id='statsContainer'>
                 <StatBar stat={food} statName={"food"} />
                 <StatBar stat={walk} statName={"walk"} />
-                <div id="taskDiv">
-                    <p>tasks</p>
-                    <div id="taskBar" >
-                        {addTasks(tasks)}
-                    </div>
-                </div>
+                {currentTask > 0 ? <StatBar stat={currentTask} statName={"hw"} /> : dailyTasks()}  
             </div>
         </div>
     )
