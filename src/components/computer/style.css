@@ -1,0 +1,38 @@
+.computer{
+    background-color: #1e1e2ee8;
+    overflow: hidden;
+    width: 384px;
+    height: 384px;
+    position: relative;
+    z-index: 3;
+}
+
+.comp-text{
+    height: 100%;
+    width: 384px;
+    white-space: pre;
+    color: white;
+    letter-spacing: .13em;
+    margin-left: -130px;
+
+    -moz-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    
+    -moz-animation: scroll-text 10s linear infinite;
+    -webkit-animation: scroll-text 10s linear infinite;
+    animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+    from {
+        -moz-transform: translateY(100%);
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+    to {
+        -moz-transform: translateY(-200%);
+        -webkit-transform: translateY(-200%);
+        transform: translateY(-200%);
+    }
+}
