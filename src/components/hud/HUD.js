@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { decreaseStat, increaseStat, toggleBowl, setMessage } from '../game/gameSlice'
+import { decreaseStat, increaseStat, toggleBowl, setMessage, endGame } from '../game/gameSlice'
 
 import StatBar from "../statbar/StatBar";
 import Clock from "../clock/Clock";
@@ -21,9 +21,10 @@ function HUD() {
     //food stat effects
     useEffect(() => {
         let foodInt;
-
+        //if the game is paused, stop the interval
         if (paused) {
             clearInterval(foodInt)
+        //if bowl is full, increment the food stat until 100, then set bowl to false
         } else if (bowl) {
             clearInterval(foodInt)
 
@@ -35,16 +36,16 @@ function HUD() {
                 clearInterval(foodInt)
                 dispatch(toggleBowl(`Maybe we should go for a walk soon.`))
             }
-
+        //dispatch warnings to use if stat is low
         } else if (food === 50) {
-            dispatch(setMessage(`Oh, ${dog} looks kind of hungry`))
+            dispatch(setMessage(`Oh, ${dog} looks kind of hungry.`))
             dispatch(decreaseStat('foodStat'))
         } else if (food === 20) {
-            dispatch(setMessage(`${dog} is REALLY hungry. I should fill the bowl.`))
+            dispatch(setMessage(`${dog} is hungry. I should fill the bowl.`))
             dispatch(decreaseStat('foodStat'))
         } else if (food === 0) {
-            //need to add game end dispatch
             clearInterval(foodInt)
+            dispatch(endGame(`${dog} ate my computer cord.`))
         } else {
             foodInt = setInterval(() => {
                 dispatch(decreaseStat('foodStat'))
@@ -59,10 +60,10 @@ function HUD() {
     //walk decrement effect
     useEffect(() => {
         let walkInt;
-
+        //if the game is paused, stop the interval
         if (paused) {
             clearInterval(walkInt)
-
+        //if you're outside, increment the walk stat until 100
         } else if (outside) {
             clearInterval(walkInt)
 
@@ -73,7 +74,7 @@ function HUD() {
             } else if (walk === 100) {
                 clearInterval(walkInt)
             }
-
+        //dispatch warnings to use if stat is low
         } else if (walk === 50) {
             dispatch(setMessage(`${dog} might need to go outside.`))
             dispatch(decreaseStat('walkStat'))
@@ -81,8 +82,8 @@ function HUD() {
             dispatch(setMessage(`I really need to take ${dog} for a walk.`))
             dispatch(decreaseStat('walkStat'))
         } else if (walk === 0) {
-            //need to add game over dispatch
             clearInterval(walkInt)
+            dispatch(endGame(`${dog} peed on my computer.`))
         } else {
             walkInt = setInterval(() => {
                 dispatch(decreaseStat('walkStat'))
