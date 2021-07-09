@@ -1,0 +1,21 @@
+#highscore-div{
+    width: 320px;
+    height: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 200%;
+    background-color: white;
+    border: 3px solid pink;
+    border-radius: 4px;
+    padding: 40px 0;
+
+}
+#highscore{
+    align-self: center;
+    font-size: 300%;
+    background-color: white;
+    border: 3px solid pink;
+    border-radius: 4px;
+    padding: 10px 50px;
+}
