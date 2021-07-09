@@ -6,7 +6,7 @@ function Highscores() {
 
     useEffect(() => {
 
-        fetch("https://boiling-reaches-07903.herokuapp.com/highscores?_limit=10")
+        fetch("https://boiling-reaches-07903.herokuapp.com/highscores")
             .then(r => r.json())
             .then(data => setScores(data))
 
@@ -16,21 +16,26 @@ function Highscores() {
         return <h2>Waking up my heroku server...</h2>
     }
 
-    const scoresTable = scores.map(score => {
-        return (
-            <tr key={score.id}>
-                <td>
-                    {score.id}
-                </td>
-                <td>
-                    {score.name}
-                </td>
-                <td>
-                    {score.score}
-                </td>
-            </tr>
-        )
-    })
+    function sortScores(){
+        const sortedScores = scores.sort((a, b) => a.score < b.score ? 1 : -1)
+
+        const highscores = sortedScores.map(score => {
+            return (
+                <tr key={score.id}>
+                    <td>
+                        {score.name}
+                    </td>
+                    <td>
+                        {score.score}
+                    </td>
+                </tr>
+            )
+        })
+        
+        return highscores;
+    }
+
+    
 
     return (
         <>
@@ -39,11 +44,10 @@ function Highscores() {
                 <table id='highscore-table'>
                     <tbody>
                         <tr>
-                            <th>Place</th>
                             <th>Name</th>
                             <th>Score</th>
                         </tr>
-                        {scoresTable}
+                        {sortScores()}
                     </tbody>
                 </table>
             </div>
