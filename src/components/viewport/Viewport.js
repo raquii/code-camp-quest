@@ -51,6 +51,7 @@ function Viewport() {
 
     })
 
+    //submits users score to server
     function submitScore(){
         const scoreObj = {name: name, score: score}
 
@@ -67,6 +68,7 @@ function Viewport() {
         handleReset();
     }
 
+    //resets the game state
     function handleReset(){
         dispatch(resetGame())
         dispatch(resetClock())
