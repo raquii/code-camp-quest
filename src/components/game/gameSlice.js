@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import getDailyTasks from "../../utilities/get-daily-tasks";
 
 const initialState = {
-    paused: false,
+    paused: true,
     stats: {
         foodStat: 100,
         walkStat: 100,
@@ -10,10 +10,11 @@ const initialState = {
     taskStat: 0,
     totalTasks: [1,1,1,1,1,1],
     day: 1,
-    message: `It's another amazing day to code!`,
-    dog: 'Luna',
+    message: ``,
+    dog: '',
     bowl: false,
     outside: false,
+    gameover: false,
 };
 
 
@@ -37,6 +38,13 @@ const gameSlice = createSlice({
             const newTasks = getDailyTasks(state.day)
             state.day += 1
             state.totalTasks = newTasks
+            state.message = `It's a new day!`
+        },
+        nameDog: (state, action)=>{
+            state.dog = action.payload
+            state.start = true
+            state.paused = false
+            state.message = `Good morning! What a great day to code!`
         },
         decreaseStat: (state, action) => {
             const stat = action.payload
@@ -49,6 +57,10 @@ const gameSlice = createSlice({
         setMessage: (state, action)=>{
             state.message = action.payload
         },
+        endGame:(state, action)=>{
+            state.gameover = true
+            state.message = action.payload
+        },
         resetGame: state =>{
             return initialState
         }
@@ -56,8 +68,8 @@ const gameSlice = createSlice({
 
 })
 
-const { togglePaused, toggleBowl, toggleOutside, newDay, decreaseStat, increaseStat, setMessage, resetGame } = gameSlice.actions;
+const { togglePaused, toggleBowl, toggleOutside, newDay, nameDog, decreaseStat, increaseStat, setMessage, endGame, resetGame } = gameSlice.actions;
 
-export { togglePaused, toggleBowl, toggleOutside, newDay, decreaseStat, increaseStat, setMessage, resetGame }
+export { togglePaused, toggleBowl, toggleOutside, newDay, nameDog, decreaseStat, increaseStat, setMessage, endGame, resetGame }
 
 export default gameSlice.reducer
