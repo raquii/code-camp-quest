@@ -37,12 +37,14 @@ function Highscores() {
             <h1 id='highscore'>High Scores</h1>
             <div id='highscore-div'>
                 <table id='highscore-table'>
-                    <tr>
-                        <th>Place</th>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
-                    {scoresTable}
+                    <tbody>
+                        <tr>
+                            <th>Place</th>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                        {scoresTable}
+                    </tbody>
                 </table>
             </div>
         </>
