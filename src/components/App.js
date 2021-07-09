@@ -1,6 +1,8 @@
 import { Switch, Route } from "react-router";
 import NavBar from "./navbar/NavBar";
 import Game from "./game/Game";
+import Highscores from "./highscore/Highscores";
+import Instruction from "./instruction/Instruction";
 import './style.css';
 
 function App() {
@@ -19,11 +21,11 @@ function App() {
           </Route>
 
           <Route path="/instructions">
-            <h1>Instructions</h1>
+            <Instruction />
           </Route>
 
           <Route path="/highscores">
-            <h1>High Scores</h1>
+            <Highscores />
           </Route>
 
           <Route path="*">
