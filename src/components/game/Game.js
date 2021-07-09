@@ -37,7 +37,7 @@ function Game() {
             <div id='start-game'>
                 <h1>Welcome to CodeCamp Quest!</h1>
                 <div id='start-header'>
-                    <p>Let me help your procrastinate that chore a little longer.</p>
+                    <p>Let me help you procrastinate that chore a little longer.</p>
                     <p>To get started, name your dog and hit 'enter'.</p>
                 </div>
 
