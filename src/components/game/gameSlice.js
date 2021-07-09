@@ -59,6 +59,7 @@ const gameSlice = createSlice({
         },
         endGame:(state, action)=>{
             state.gameover = true
+            state.paused = true
             state.message = action.payload
         },
         resetGame: state =>{
