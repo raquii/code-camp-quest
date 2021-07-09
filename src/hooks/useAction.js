@@ -35,14 +35,14 @@ function useAction() {
         if(isAction){
           
             switch(ACTIONS[`${y}${x}`]){
-
+                //bedroom actions
                 case 'dresser':
                     return dispatch(setMessage(`I look smart!`));
                 case 'bed':
                     return dispatch(setMessage(`Time to sleep?`));
                 case 'window':
                     return dispatch(setMessage(`What a pretty view.`));
-
+                //office actions
                 case 'clock':
                     if(midday){
                         return dispatch(setMessage(`Wow! It's already ${hour}:${minute}0 pm?`));
@@ -53,7 +53,7 @@ function useAction() {
                     return dispatch(setMessage(`I'm glad Mr. Plant doesn't have a stat bar.`));
                 case 'computer':
                     return dispatch(setMessage(`Time to work!`));
-
+                //kitchen actions
                 case 'fridge':
                     return dispatch(setMessage(`It's full of expensive, canned dog food.`));
                 case 'sink':
