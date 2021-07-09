@@ -18,28 +18,31 @@ function Viewport() {
 
     //controls hook
     useKeyboard((e) => {
-        e.preventDefault()
+        if (!paused) {
+            e.preventDefault()
 
-        switch (e.keyCode) {
-            case 40:
-            case 83:
-                return walk('down') + actionAlert(position)
-            case 37:
-            case 65:
-                return walk('left') + actionAlert(position)
-            case 39:
-            case 68:
-                return walk('right') + actionAlert(position)
-            case 38:
-            case 87:
-                return walk('up') + actionAlert(position)
-            case 13:
-            case 32:
-                return action(position)
-            default: ;
+            switch (e.keyCode) {
+                case 40:
+                case 83:
+                    return walk('down') + actionAlert(position)
+                case 37:
+                case 65:
+                    return walk('left') + actionAlert(position)
+                case 39:
+                case 68:
+                    return walk('right') + actionAlert(position)
+                case 38:
+                case 87:
+                    return walk('up') + actionAlert(position)
+                case 13:
+                case 32:
+                    return action(position)
+                default: ;
+            }
+
         }
-    })
 
+    })
 
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
@@ -49,7 +52,6 @@ function Viewport() {
                     <span> PAUSED </span>
                 </div>
             }
-
 
             <Player
                 frame={animationFrame}
