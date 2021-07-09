@@ -13,9 +13,12 @@ function useAction() {
     const hour = useSelector(state => state.rootReducer.clock.hour);
     const minute = useSelector(state => state.rootReducer.clock.minute);
     const midday = useSelector(state => state.rootReducer.clock.midday);
-
     const dog = useSelector(state => state.rootReducer.game.dog);
 
+    //calculate an x and y index
+    //pass those values to MAP_TABLE to check the boolean value of 'action' for that cord
+    //toggles isAction
+    //also dispatches to toggle outside when x-cord 940 is crossed
     function actionAlert({ left, top }) {
         const x = ((left + 192) - (left % 32)) / 32;
         const y = (top - (top % 32)) / 32;
@@ -28,12 +31,13 @@ function useAction() {
         }
     }
 
+    //executed when user presses enter on an action tile
+    //calculates an x and y cord that matches the values saved in the ACTIONS constant
     function action({left,top}){
         const x = ((left + 192) - (left % 32)) / 32;
         const y = (top - (top % 32)) / 32;
     
         if(isAction){
-          
             switch(ACTIONS[`${y}${x}`]){
                 //bedroom actions
                 case 'dresser':
