@@ -128,6 +128,7 @@ export const ACTIONS = {
     59: 'bed',
 
     45: 'window',
+    46: 'window',
 
     514: 'clock',
     614: 'clock',
