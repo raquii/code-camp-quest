@@ -53,8 +53,8 @@ function Viewport() {
     })
 
     //submits users score to server
-    function submitScore(){
-        const scoreObj = {name: name, score: score}
+    function submitScore() {
+        const scoreObj = { name: name, score: score }
 
         fetch('https://boiling-reaches-07903.herokuapp.com/highscores', {
             method: 'POST',
@@ -63,14 +63,14 @@ function Viewport() {
             },
             body: JSON.stringify(scoreObj)
         })
-        .then(r=>r.json())
-        .then(data=>console.log(data))
+            .then(r => r.json())
+            .then(data => console.log(data))
 
         handleReset();
     }
 
     //resets the game state
-    function handleReset(){
+    function handleReset() {
         dispatch(resetGame())
         dispatch(resetClock())
     }
@@ -78,16 +78,14 @@ function Viewport() {
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
             {message === `Night night!` &&
-                <div className='sleep' >
-                    
-                </div>
+                <div className='sleep' />
             }
             {(paused && !gameover) &&
                 <div className='paused' >
                     <span> PAUSED </span>
                 </div>
             }
-            {gameover  &&
+            {gameover &&
                 <div className='gameover' >
                     <span> GAME OVER </span>
                     <div>
