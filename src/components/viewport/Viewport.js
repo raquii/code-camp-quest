@@ -28,22 +28,26 @@ function Viewport() {
 
     //controls hook
     useKeyboard((e) => {
-        if (!paused && !working) {
+        if (!paused) {
             e.preventDefault()
 
             switch (e.keyCode) {
                 case 40:
                 case 83:
-                    return walk('down') + actionAlert(position)
+                    if(!working) return walk('down') + actionAlert(position)
+                    break;
                 case 37:
                 case 65:
-                    return walk('left') + actionAlert(position)
+                    if(!working) return walk('left') + actionAlert(position)
+                    break;
                 case 39:
                 case 68:
-                    return walk('right') + actionAlert(position)
+                    if(!working) return walk('right') + actionAlert(position)
+                    break;
                 case 38:
                 case 87:
-                    return walk('up') + actionAlert(position)
+                    if(!working) return walk('up') + actionAlert(position)
+                    break;
                 case 13:
                 case 32:
                     console.log(position)
