@@ -1,6 +1,8 @@
 import './style.css'
 import { VIEWPORT_SIZE } from '../../config/constants';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { resetGame } from '../game/gameSlice';
+import { resetClock } from '../clock/clockSlice';
 
 import useWalk from '../../hooks/useWalk';
 import useKeyboard from '../../hooks/useKeyboard';
@@ -11,10 +13,15 @@ import Map from "../map/Map";
 
 
 function Viewport() {
+    const dispatch = useDispatch();
+
     const { direction, animationFrame, dogAnimationFrame, position, dogPosition, walk } = useWalk();
     const { action, isAction, actionAlert } = useAction();
 
     const paused = useSelector(state => state.rootReducer.game.paused)
+    const gameover = useSelector(state => state.rootReducer.game.gameover)
+    const score = useSelector(state => state.rootReducer.game.day)
+    const name = useSelector(state => state.rootReducer.game.dog)
 
     //controls hook
     useKeyboard((e) => {
@@ -44,12 +51,42 @@ function Viewport() {
 
     })
 
+    function submitScore(){
+        const scoreObj = {name: name, score: score}
+
+        fetch('https://boiling-reaches-07903.herokuapp.com/highscores', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(scoreObj)
+        })
+        .then(r=>r.json())
+        .then(data=>console.log(data))
+
+        handleReset();
+    }
+
+    function handleReset(){
+        dispatch(resetGame())
+        dispatch(resetClock())
+    }
+
     return (
         <div id="viewportContainer" style={{ width: VIEWPORT_SIZE, height: VIEWPORT_SIZE }}>
 
             {paused &&
                 <div className='paused' >
                     <span> PAUSED </span>
+                </div>
+            }
+            {gameover  &&
+                <div className='gameover' >
+                    <span> GAME OVER </span>
+                    <div>
+                        <button className='gamebtn' onClick={submitScore}>Submit Score</button>
+                        <button className='gamebtn' onClick={handleReset}>Restart</button>
+                    </div>
                 </div>
             }
 

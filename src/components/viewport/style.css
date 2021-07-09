@@ -17,4 +17,40 @@
     justify-content: center;
     align-items: center;
     z-index: 3;
+    letter-spacing: .2em;
+}
+
+.gameover{
+    background-color: rgba(87, 0, 0, 0.705);
+    width: 384px;
+    height: 384px;
+    position: relative;
+    text-align: center;
+    color:white;
+    font-size: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    letter-spacing: .2em;
+}
+
+.gameover>span{
+    width: 300px;
+    padding-top: 140px;
+}
+
+.gamebtn{
+    color:rgb(255, 66, 66);
+    background-color: rgba(255, 255, 255, 0.87);
+    border: 2px solid rgb(255, 66, 66);
+    border-radius: 2px;
+    font-family: monospace;  
+    margin: 10px 10px 100px 10px;
+}
+.gamebtn:hover{
+    color:white;
+    background-color: rgb(255, 66, 66);
+    border: 2px solid rgb(255, 66, 66); 
 }
