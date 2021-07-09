@@ -69,7 +69,7 @@ function HUD() {
             if (walk < 100) {
                 walkInt = setInterval(() => {
                     dispatch(increaseStat('walkStat'))
-                }, 2000)
+                }, 1000)
             } else if (walk === 100) {
                 clearInterval(walkInt)
             }
@@ -86,7 +86,7 @@ function HUD() {
         } else {
             walkInt = setInterval(() => {
                 dispatch(decreaseStat('walkStat'))
-            }, 5000)
+            }, 4000)
         }
 
         return () => {
