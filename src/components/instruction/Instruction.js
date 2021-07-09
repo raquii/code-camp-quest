@@ -10,7 +10,8 @@ function Instruction(){
                 <p>Completing your homework is simple enough: somehow, the only key you 
                     need to hit is 'enter'.</p>
                 <p>But completing it while also keeping up with the needs of your
-                    adorable dog is another story. Specifically, it's this game's story.</p>
+                    adorable dog is another story.</p>
+                <p> Actually, it's this game's story.</p>
                     <div id='controls'>
                         <h3>Move: </h3><p>WASD or ↑←↓→</p>
                         <h3>Action: </h3><p>Space or Enter</p>
