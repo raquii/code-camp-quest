@@ -13,21 +13,21 @@ function Clock() {
     const hour = useSelector(state => state.rootReducer.clock.hour)
     const minute = useSelector(state => state.rootReducer.clock.minute)
     const midday = useSelector(state => state.rootReducer.clock.midday)
-  
+
 
     useEffect(() => {
         let clockInterval;
 
-        if(paused){
+        if (paused) {
             clearInterval(clockInterval)
-        }else if(hour===12 && !midday){
-            if(tasks.length > 0){
+        } else if (hour === 12 && !midday) {
+            if (tasks.length > 0) {
                 dispatch(endGame(`I didn't finish my homework!`))
-            }else{
+            } else {
                 dispatch(newDay())
                 dispatch(resetClock())
             }
-        }else{
+        } else {
             clockInterval = setInterval(() => {
                 if (minute < 5) {
                     dispatch(minuteChange())
@@ -38,7 +38,7 @@ function Clock() {
                 } else {
                     dispatch(hourChange())
                 }
-            }, 500)
+            }, 5000)
         }
 
         return () => {
