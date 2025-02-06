@@ -24,7 +24,7 @@
     letter-spacing: .12em; 
     color:white;
     animation: 
-        typing 3s steps(40, end),
+        typing 1s steps(40, end),
         blink-caret 1s step-end infinite;
 }
 
