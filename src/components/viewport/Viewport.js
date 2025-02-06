@@ -62,17 +62,14 @@ function Viewport() {
     //submits users score to server
     function submitScore() {
         const scoreObj = { name: name, score: score }
-
-        fetch('https://boiling-reaches-07903.herokuapp.com/highscores', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(scoreObj)
-        })
-            .then(r => r.json())
-            .then(data => console.log(data))
-
+        const scores = JSON.parse(localStorage.getItem("scores"));
+        if (scores) {
+            scores.push(scoreObj);
+            localStorage.setItem("scores", JSON.stringify(scores));
+        } else {
+            localStorage.setItem("scores", JSON.stringify([scoreObj]));
+        }
+        
         handleReset();
     }
 

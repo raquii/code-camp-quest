@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import './style.css';
 
 function Highscores() {
-    const [scores, setScores] = useState(null);
+    const [scores, setScores] = useState([]);
 
     useEffect(() => {
-
-        fetch("https://boiling-reaches-07903.herokuapp.com/highscores")
-            .then(r => r.json())
-            .then(data => setScores(data))
-
+      const scores = JSON.parse(localStorage.getItem("scores"));
+      if (scores) {
+        setScores(scores);
+      }
     }, []);
 
-    if (!scores) {
-        return <h2>Waking up my heroku server...</h2>
+    if (scores.length === 0) {
+        return <h2>No scores to show!</h2>
     }
 
     function sortScores(){
