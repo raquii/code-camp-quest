@@ -112,6 +112,7 @@ export const MAP_TABLE = [
 
 export const PLAYER_FRAMES = 6;
 export const PLAYER_DIMENTIONS = { h: 45, w: 32 };
+export const STEPS = 4;
 
 export const DOG_FRAMES = 4;
 export const DOG_DIMENTIONS = {h: 32, w: 32};
@@ -163,8 +164,3 @@ export const ACTIONS = {
     931: 'bowl',
     932: 'bowl',
 }
-
-
-
-
-

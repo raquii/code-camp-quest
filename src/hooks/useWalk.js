@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { PLAYER_FRAMES, DOG_FRAMES } from "../config/constants";
+import { PLAYER_FRAMES, DOG_FRAMES, STEPS } from "../config/constants";
 import getNextTile from "../utilities/get-next-tile";
 
 const reducer = (state, action) => {
@@ -10,24 +10,24 @@ const reducer = (state, action) => {
                 direction: 0,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, top: state.position.top + 2 },
-                dogPosition: {...state.dogPosition, top: state.dogPosition.top + 2 } 
+                position: { ...state.position, top: state.position.top + STEPS },
+                dogPosition: {...state.dogPosition, top: state.dogPosition.top + STEPS } 
             }
         case 'left':
             return {
                 direction: 1,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, left: state.position.left - 2 },
-                dogPosition: state.dogPosition.left> 160 ? { ...state.dogPosition, left: state.dogPosition.left - 4 } : {...state.dogPosition}
+                position: { ...state.position, left: state.position.left - STEPS },
+                dogPosition: state.dogPosition.left> 160 ? { ...state.dogPosition, left: state.dogPosition.left - (STEPS * 2) } : {...state.dogPosition}
             }
         case 'right':
             return {
                 direction: 2,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, left: state.position.left + 2 },
-                dogPosition: state.dogPosition.left < 224 ? { ...state.dogPosition, left: state.dogPosition.left + 4 } : {...state.dogPosition}
+                position: { ...state.position, left: state.position.left + STEPS },
+                dogPosition: state.dogPosition.left < 224 ? { ...state.dogPosition, left: state.dogPosition.left + (STEPS * 2) } : {...state.dogPosition}
             }
         case 'up':
 
@@ -35,8 +35,8 @@ const reducer = (state, action) => {
                 direction: 3,
                 animationFrame: state.animationFrame < PLAYER_FRAMES - 1 ? state.animationFrame + 1 : 0,
                 dogAnimationFrame: state.dogAnimationFrame < DOG_FRAMES - 1 ? state.dogAnimationFrame + 1 : 0,
-                position: { ...state.position, top: state.position.top - 2 },
-                dogPosition: {...state.dogPosition, top: state.dogPosition.top - 2 }
+                position: { ...state.position, top: state.position.top - STEPS },
+                dogPosition: {...state.dogPosition, top: state.dogPosition.top - STEPS }
             }
         default: ;
     }
