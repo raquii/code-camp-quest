@@ -71,7 +71,32 @@ function Computer(){
 
                     return('It got 2 million likes!');
                 }
+                
+                function vet(dog) {
+                    let vet = 'expensive'
 
+                    dog.happy = false;
+                    dog.health = 'good';
+                    dog.bills = 'paid';
+
+                    return(dog + ' needs insurance.');
+                }
+
+                function groom(dog) {
+                    dog.happy = true;
+                    dog.fur = 'soft';
+                    dog.smells = 'good';
+
+                    return(dog + ' is ready for the dog park.');
+                }
+
+                function dogPark(dog) {
+                    let friends = 'made';
+                    let treats = 'begged for';
+                    let squirrels = 'chased';
+
+                    return(dog + ' had a great day!');
+                }
                 `}
             </div>
         </div>
